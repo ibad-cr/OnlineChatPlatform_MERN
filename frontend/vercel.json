@@ -1,7 +1,11 @@
 {
-    "rewrites": [
-      { "source": "/auth/account/user/:token", "destination": "/" },
-      { "source": "/(.*)", "destination": "/" }
-    ]
-  }
-  
+  "rewrites": [
+    {
+      "destination": "/"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ]
+}
