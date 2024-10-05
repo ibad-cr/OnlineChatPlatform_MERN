@@ -1,0 +1,7 @@
+{
+    "rewrites": [
+      { "source": "/auth/account/user/:token", "destination": "/" },
+      { "source": "/(.*)", "destination": "/" }
+    ]
+  }
+  
