@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 
-import '../../frontend/public/sass/style.scss';
+import './assets/sass/style.scss';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'react-loading-skeleton/dist/skeleton.css'
 import 'animate.css';
