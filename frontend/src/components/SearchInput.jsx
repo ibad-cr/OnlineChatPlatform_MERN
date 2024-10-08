@@ -38,7 +38,7 @@ const SearchInput = () => {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <button type="submit">Submit</button>
+        <button type="submit">Search</button>
       </form>
     </div>
   );

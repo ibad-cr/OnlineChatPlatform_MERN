@@ -1,19 +1,19 @@
 import React from 'react'
 import SearchInput from './SearchInput'
 import Conversations from './Conversations'
-import LogoutButtons from './LogoutButtons'
+import Settings from './Settings'
 
 const Sidebar = () => {
     return (
         <div className='sidebar' >
-            <div className='d-flex justify-content-center'>
+            <div className=''>
                 <SearchInput />
             </div>
             <div>
                 <Conversations />
             </div>
-            <div>
-                <LogoutButtons />
+            <div className='setting-buttons'>
+                <Settings />
             </div>
         </div>
     )

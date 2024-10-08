@@ -4,12 +4,17 @@ import useConversation from '../../zustand/useConversation';
 
 const Message = ({ message }) => {
 
+    const style = {
+        background: '#243647',
+        color: 'white'
+    };
+
     const { authUser, setAuthUser } = useAuthContext();
     const { selectedConversation } = useConversation();
     const fromMe = message.senderID === authUser._id;
     const chatClassName = fromMe ? 'justify-content-end' : 'justify-content-start';
     const profilePic = fromMe ? authUser.profilePic : selectedConversation?.profilePic;
-    const bubbleBgColor = fromMe ? 'bg-info-subtle' : 'bg-light-subtle';
+    const bubbleBgColor = fromMe ? { background: '#1980e6', color: 'white' } : style;
     const formattedTime = extractTime(message.createdAt);
 
     const shakeClass = message ? "animate__animated animate__fadeInRight" : "";
@@ -17,13 +22,13 @@ const Message = ({ message }) => {
     return (
         <>
             <div className={`message ${chatClassName} ${shakeClass}`}>
-                <div className={`user-message ${bubbleBgColor} ${shakeClass} `}>
+                <div className={`user-message ${shakeClass} `} style={bubbleBgColor}>
                     <span>{message.message}</span>
                 </div>
                 <div className='message-user-logo'>
                     <img src={profilePic} alt="" />
                 </div>
-                <div>
+                <div className='message-time'>
                     {formattedTime}
                 </div>
             </div>

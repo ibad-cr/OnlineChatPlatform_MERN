@@ -16,7 +16,7 @@ const MessagesContainer = () => {
             {!selectedConversation ? (<NoChatSelected />) :
                 (<>
                     <header className='header'>
-                        To: <span>{selectedConversation.fullname}</span>
+                        <div className='user-fullname'>{selectedConversation.fullname}</div>
                     </header>
                     <main>
                         <div>
@@ -38,7 +38,7 @@ const NoChatSelected = () => {
     const { authUser } = useAuthContext();
     return (
         <div className='d-flex align-items-center justify-content-center'>
-            <h1>Welcome {authUser.fullname}</h1>
+            <h1 style={{ color: 'white' }}>Welcome {authUser.fullname}</h1>
         </div>
     )
 }

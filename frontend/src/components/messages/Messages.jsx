@@ -16,7 +16,7 @@ const Messages = () => {
     }, [messages])
 
     return (
-        <div className='messages mt-4'>
+        <div className='messages'>
             {!loading &&
                 messages.length > 0 &&
                 messages.map((message) => (
