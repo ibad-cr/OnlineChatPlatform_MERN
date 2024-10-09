@@ -1,20 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import useSendMessage from '../../hooks/useSendMessage';
-import { RiSendPlaneLine } from 'react-icons/ri';
 import { PiImage } from "react-icons/pi";
 import { useAuthContext } from '../../context/AuthContext';
+import { RiSendPlaneLine } from "react-icons/ri";
 
 const MessagesInput = () => {
-    const [message, setMessage] = useState("");
     const { loading, sendMessage } = useSendMessage();
     const { authUser } = useAuthContext();
+    
+    const [message, setMessage] = useState("");
+    const textareaRef = useRef(null);
 
-    const handleSubmit = async (e) => {
+    const handleChange = (e) => {
+        const textarea = textareaRef.current;
+        setMessage(e.target.value);
+
+     
+        textarea.style.height = 'auto';
+        textarea.style.height = textarea.scrollHeight + 'px'; 
+    };
+
+    const handleSubmit = (e) => {
         e.preventDefault();
         if (!message) return;
-        await sendMessage(message);
-        setMessage("");
-    }
+        setMessage("");  
+    };
 
     return (
         <div className='message-input'>
@@ -24,17 +34,19 @@ const MessagesInput = () => {
                 </div>
                 <div className='input-box'>
                     <textarea
+                        ref={textareaRef}
                         className='textarea'
                         placeholder='Type a message'
                         value={message}
-                        onChange={(e) => setMessage(e.target.value)}
+                        onChange={handleChange}
                         rows={1}
+                        style={{ resize: 'none', overflow: 'hidden' }}  
                     />
                     <div className='message-send-button'>
                         <button type='button' className='send-image-button'>
                             <PiImage className='send-image-icon' />
                         </button>
-                        <button type='submit' className='send-button'> {/* Burada type 'submit' olmalıdır */}
+                        <button type='submit' className='send-button'>
                             <RiSendPlaneLine className='send-icon' />
                         </button>
                     </div>
@@ -42,6 +54,6 @@ const MessagesInput = () => {
             </form>
         </div>
     );
-}
+};
 
 export default MessagesInput;

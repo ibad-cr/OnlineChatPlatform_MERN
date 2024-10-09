@@ -23,7 +23,7 @@ const Message = ({ message }) => {
         <>
             <div className={`message ${chatClassName} ${shakeClass}`}>
                 <div className={`user-message ${shakeClass} `} style={bubbleBgColor}>
-                    <span>{message.message}</span>
+                    <p className=''>{message.message}</p>
                 </div>
                 <div className='message-user-logo'>
                     <img src={profilePic} alt="" />

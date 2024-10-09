@@ -1,10 +1,11 @@
 import React from 'react'
 import Conversation from './Conversation'
 import useGetConversations from '../hooks/useGetConversations';
+import ConversationsSkeleton from './skeleton/ConversationsSkeleton';
 
 const Conversations = () => {
     const { loading, conversations } = useGetConversations();
-    
+
     return (
         <div className='conversations'>
             <ul className='users-list'>
@@ -17,7 +18,9 @@ const Conversations = () => {
                         <Conversation conversation={conversation} lastIndex={index === conversations.length - 1} />
                     </li>
                 ))}
-                {loading ? <div>Loading...</div> : null}
+                {loading ? [...Array(5)].map((_, idx) =>
+                    <ConversationsSkeleton />
+                ) : null}
             </ul>
         </div>
     )
