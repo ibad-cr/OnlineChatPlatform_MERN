@@ -19,6 +19,7 @@ const Message = ({ message }) => {
 
     const shakeClass = message ? "animate__animated animate__fadeInRight" : "";
 
+    
     return (
         <>
             <div className={`message ${chatClassName} ${shakeClass}`}>

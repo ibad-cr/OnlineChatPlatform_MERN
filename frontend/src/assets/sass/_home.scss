@@ -5,7 +5,7 @@
     height: 100vh;
 
     .home-page {
-        width: 85%;
+        width: 65%;
 
         .home-page-elements {
             background: #111a22;
@@ -24,7 +24,7 @@
 .sidebar {
     display: flex;
     flex-direction: column;
-    max-width: 25% !important;
+    max-width: 27% !important;
     width: 100%;
     background: #0f171d;
     gap: 30px;
@@ -85,6 +85,7 @@
 
     .users-name {
         p {
+            font-size: 17px;
             padding: 0 !important;
             margin: 0 !important;
         }
@@ -155,6 +156,7 @@
         white-space: normal !important;
 
         p {
+            font-size: 19px;
             padding: 0;
             margin: 0;
             white-space: normal;
