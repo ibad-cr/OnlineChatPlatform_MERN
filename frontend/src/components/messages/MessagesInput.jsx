@@ -7,7 +7,7 @@ import { RiSendPlaneLine } from "react-icons/ri";
 const MessagesInput = () => {
     const { loading, sendMessage } = useSendMessage();
     const { authUser } = useAuthContext();
-    
+
     const [message, setMessage] = useState("");
     const textareaRef = useRef(null);
 
@@ -15,15 +15,15 @@ const MessagesInput = () => {
         const textarea = textareaRef.current;
         setMessage(e.target.value);
 
-     
         textarea.style.height = 'auto';
-        textarea.style.height = textarea.scrollHeight + 'px'; 
+        textarea.style.height = textarea.scrollHeight + 'px';
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (!message) return;
-        setMessage("");  
+        await sendMessage(message);
+        setMessage("");
     };
 
     return (
@@ -40,7 +40,7 @@ const MessagesInput = () => {
                         value={message}
                         onChange={handleChange}
                         rows={1}
-                        style={{ resize: 'none', overflow: 'hidden' }}  
+                        style={{ resize: 'none', overflow: 'hidden' }}
                     />
                     <div className='message-send-button'>
                         <button type='button' className='send-image-button'>
